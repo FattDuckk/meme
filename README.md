@@ -19,6 +19,7 @@ Hold up a gesture in front of your webcam — the meme window updates instantly 
 ## How it works
 
 Each frame from the webcam is passed to MediaPipe's Hand Landmarker model, which returns 21 landmarks per detected hand. Gesture detection is done by measuring the angle at each finger's middle joint (PIP) — if the angle is greater than 150°, the finger is considered extended. This angle-based approach is more robust than simple y-coordinate comparison, as it works regardless of hand orientation.
+### ⚠️ Press `Q` to quit/exit
 
 ## Setup
 
@@ -65,7 +66,11 @@ project/
 ## Usage
 
 ```bash
-python src/demo.py
+python src/hand_track_hamster.py
+```
+or
+```bash
+python3 src/hand_track_hamster.py
 ```
 
 - Two windows will open — the webcam feed with skeleton overlay, and the meme display window
@@ -83,7 +88,19 @@ if thumb_up and index_up and middle_up and ring_up and pinky_up:
 
 Add a new entry to the `memes` dict and a new condition in `detect_gesture()` to map it.
 
+## Adding new memes
+
+1. Drop your image into the `images/` folder
+2. Add it to the `memes` dict in `hand_track_hamster.py`:
+```python
+   "gesture_name": cv2.imread("../images/your_image.jpg"),
+```
+3. Add a condition in `detect_gesture()` that returns `"gesture_name"`
+
 ## Tech stack
 
 - [MediaPipe Tasks API](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/python) — hand landmark detection
 - [OpenCV](https://opencv.org/) — webcam capture, drawing, windowing
+
+## Credits
+Built and documented with assistance from [Claude](https://claude.ai) (Anthropic).

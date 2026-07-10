@@ -68,14 +68,14 @@ def detect_gesture(landmarks):
     
     return None
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 # Create meme window
 cv2.namedWindow("Meme", cv2.WINDOW_NORMAL)
 cv2.resizeWindow("Meme", 600, 800)
 
 # Black placeholder for meme window
-blank = np.zeros((400, 400, 3), dtype=np.uint8)
+blank = np.zeros((600, 800, 3), dtype=np.uint8)
 cv2.imshow("Meme", blank)
 
 current_gesture = None
