@@ -20,11 +20,14 @@ HAND_CONNECTIONS = [
 
 # Load memes
 memes = {
-    "peace":    cv2.imread("../images/hamster_peace.webp"),
+    "peace": cv2.imread("../images/hamster_peace.webp"),
     "fingergun": cv2.imread("../images/hamster_gun.webp"),
     "fist": cv2.imread("../images/hamster_scream.jpg"),
     "flat": cv2.imread("../images/hamster_flat.webp"),
     "thumbsup": cv2.imread("../images/hamster_thumbs_up.jpg"),  # swap for your thumbs up image
+    "ball": cv2.imread("../images/hamster_ball.jpeg"),
+    "rock": cv2.imread("../images/spiderham.webp"),
+
 }
 
 def angle(a, b, c):
@@ -58,6 +61,10 @@ def detect_gesture(landmarks):
         return "thumbsup"
     elif thumb_up and index_up and middle_up and ring_up and pinky_up:
         return "flat"
+    elif not index_up and middle_up and ring_up and pinky_up:
+        return "ball"
+    elif index_up and not middle_up and not ring_up and pinky_up:
+        return "rock"
     
     return None
 
