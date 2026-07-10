@@ -26,7 +26,7 @@ memes = {
     "flat": cv2.imread("../images/hamster_flat.webp"),
     "thumbsup": cv2.imread("../images/hamster_thumbs_up.jpg"),  # swap for your thumbs up image
     "ball": cv2.imread("../images/hamster_ball.jpeg"),
-    "rock": cv2.imread("../images/spiderham.webp"),
+    "rock": cv2.imread("../images/spiderham.jpg"),
 
 }
 
